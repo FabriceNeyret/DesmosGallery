@@ -1,11 +1,15 @@
 // ==UserScript==
 // @name        DesmosGallery
-// @namespace   https://github.com/XXXXX
-// @description Desmos Gallery generator
-// @include     https://www.desmos.com/calculator*
+// @namespace   https://github.com/FabriceNeyret/DesmosGallery
 // @version     1
+// @description Desmos Gallery generator
+// @author      Fabrice Neyret
+// @include     https://www.desmos.com/calculator*
+// @match       https://*.desmos.com/calculator*
 // @run-at      document-start
 // @grant       GM_addStyle
+// @downloadURL https://github.com/FabriceNeyret/DesmosGallery/edit/main/demosgallery.user.js
+// @updateURL   https://github.com/FabriceNeyret/DesmosGallery/edit/main/demosgallery.user.js
 // ==/UserScript==
 
 /* DesmosGallery TamperMonkey / GreaseMonkey script by Fabrice Neyret */
