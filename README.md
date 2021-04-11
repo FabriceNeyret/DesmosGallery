@@ -1,5 +1,8 @@
 # DesmosGallery
 An html gallery export button for www.desmos.com using TamperMonkey / GreaseMonkey / etc.
+Creates and opens it in a new browser tab, that you can copy on your web page, email, document, or anything where web content can be copy-pasted.
+
+Example of result:
 ![example of result](https://media.discordapp.net/attachments/655972529030037507/830680841066643486/kuE6ri6.png)
 
 # Usage
