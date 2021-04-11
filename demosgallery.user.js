@@ -23,7 +23,7 @@ function PageScript() {
     var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
-    t += "</head>\n<body></br><hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n( "+g.length+" graphs. )</br>\n";
+    t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n( "+g.length+" graphs. )</br>\n";
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
    /* t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)"; */                                // optional JSON URL for backup
