@@ -1,6 +1,6 @@
 # DesmosGallery
 An html gallery export button for www.desmos.com using TamperMonkey / GreaseMonkey / etc.
-![example of result](https://media.discordapp.net/attachments/655972529030037507/830680841066643486/kuE6ri6.png?width=822&height=608)
+![example of result](https://media.discordapp.net/attachments/655972529030037507/830680841066643486/kuE6ri6.png)
 
 # Usage
 Navigate to the main calculator page of Desmos.com, wait for the button "Get Gallery" to appear in the top-right corner of the page. If it is disabled, you should just need to update the view e.g. by dragging it a bit with the mouse. Click on the button to display a new tab containing your personnal gallery of graphs. Save it to your website, or copy-paste it as any web content.
