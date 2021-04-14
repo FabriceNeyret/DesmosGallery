@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1
+// @version     1.1
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -11,6 +11,10 @@
 // @downloadURL https://github.com/FabriceNeyret/DesmosGallery/edit/main/demosgallery.user.js
 // @updateURL   https://github.com/FabriceNeyret/DesmosGallery/edit/main/demosgallery.user.js
 // ==/UserScript==
+
+// changelog:
+//   1.1        also download the html file ( images directly link to Desmos website )
+//   1.0        first version: open a new tab with the gallery
 
 /* DesmosGallery TamperMonkey / GreaseMonkey script by Fabrice Neyret */
 // script structure inspired by https://github.com/baz1/DesmosToSVG
@@ -31,7 +35,26 @@ function PageScript() {
     }
     t+="</body></html>"
     window.open().document.write(t);                                                    // creates new tab with gallery
+    download( t, "DesmosGallery.html", "text/plain; charset=UTF-8" );                   // download the html file
   };
+
+function download(data, filename, type) { // from https://github.com/SlimRunner/desmos-scripts-addons/blob/master/graph-archival-script/
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+}
 
   var main = function() {
 
