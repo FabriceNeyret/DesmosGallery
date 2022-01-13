@@ -1,6 +1,6 @@
 # DesmosGallery
 An html gallery export button for www.desmos.com using TamperMonkey / GreaseMonkey / etc.
-Creates and opens it in a new browser tab, that you can copy on your web page, email, document, or anything where web content can be copy-pasted.
+Creates and saves an html file to be installed wherever you wish, and opens it as well in a new browser tab ( for verification, save or copy-paste as any web content, or just to let you admire your production at a glance :-) ).
 
 Example of result:
 
@@ -8,7 +8,7 @@ Example of result:
 
 
 # Usage
-Navigate to the main calculator page of Desmos.com, wait for the button "Get Gallery" to appear in the top-right corner of the page. If it is disabled, you should just need to update the view e.g. by dragging it a bit with the mouse. Click on the button to display a new tab containing your personnal gallery of graphs. Save it to your website, or copy-paste it as any web content.
+Navigate to the main calculator page of Desmos.com, wait for the button "Get Gallery" to appear in the top-right corner of the page. If it is disabled, you should just need to update the view e.g. by dragging it a bit with the mouse. Click on the button to save the gallery as an html file to install wherever you wish, and to display a new tab containing your personnal gallery of graphs ( for verification, save or copy-paste it as any web content, or just to admire :-) ).
 
 # Installation
 Once you have installed TamperMonkey/GreaseMonkey/variant plugin in your favorite browser, then it's as for any script: click on the name.user.js file above, then "raw". Tampermonkey should then directly propose to install the script, otherwise click on your Monkey plugin icon shortcut and manually copy-paste the code as a new script.
