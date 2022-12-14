@@ -12,6 +12,7 @@ Navigate to the main calculator page of Desmos.com, wait for the button "Get Gal
 
 # Installation
 Once you have installed TamperMonkey/GreaseMonkey/variant plugin in your favorite browser, then it's as for any script: click on the name.user.js file above, then "raw". Tampermonkey should then directly propose to install the script, otherwise click on your Monkey plugin icon shortcut and manually copy-paste the code as a new script.
+Attention: you also need the DesModder (very useful) plugin (for Chrome and Firefox) to be installed.
 
 # Disclaimer
 It is my first script ever :-D ( I followed the model of DesmosToSVG ) , tested only on Chrome and Firefox.  I hope all will go well for you as well ! ;-)
