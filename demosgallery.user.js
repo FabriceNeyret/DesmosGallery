@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.1
+// @version     1.2
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -13,6 +13,7 @@
 // ==/UserScript==
 
 // changelog:
+//   1.2        fix after Desmos Calc is now closured. Now rely on DesModder util.
 //   1.1        also download the html file ( images directly link to Desmos website )
 //   1.0        first version: open a new tab with the gallery
 
@@ -24,7 +25,8 @@ function PageScript() {
 
   // my stuff
   DesmosGallery.getGallery = function() {
-    var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations
+    var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
+//  var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
     t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n( "+g.length+" graphs. )</br>\n";
