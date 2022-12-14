@@ -8,9 +8,10 @@
 // @match       https://*.desmos.com/calculator*
 // @run-at      document-start
 // @grant       GM_addStyle
-// @downloadURL https://github.com/FabriceNeyret/DesmosGallery/blob/main/demosgallery.user.js
-// @updateURL   https://github.com/FabriceNeyret/DesmosGallery/blob/main/demosgallery.user.js
+// @downloadURL https://github.com/FabriceNeyret/DesmosGallery/raw/main/demosgallery.user.js
+// @updateURL   https://github.com/FabriceNeyret/DesmosGallery/raw/main/demosgallery.user.js
 // ==/UserScript==
+//              https://github.com/FabriceNeyret/DesmosGallery/blob/main/demosgallery.user.js
 
 // changelog:
 //   1.2        fix after Desmos Calc is now closured. Now rely on DesModder util.
