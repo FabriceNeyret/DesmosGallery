@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.4.1
+// @version     1.4.2
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -99,9 +99,6 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
 
   }
 
-  setTimeout(main, 3000);
-}
-
   var main = function() {
 
     pollForValue(() => window.Calc).then(() => {  // protection against DesModder freezing Desmos start script
@@ -109,6 +106,9 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
         init();
       });
   }
+  
+  setTimeout(main, 3000);
+}
 
 function AddJSNode(fn, url) {
   var scriptNode = document.createElement("script");
