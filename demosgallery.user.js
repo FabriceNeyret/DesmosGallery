@@ -14,7 +14,7 @@
 //              https://github.com/FabriceNeyret/DesmosGallery/blob/main/demosgallery.user.js
 
 // changelog:
-//   1.3        structure new place found. Independant back.
+//   1.3        structure new place found. Independance back.
 //   1.2        fix after Desmos Calc is now closured. Now rely on DesModder util.
 //   1.1        also download the html file ( images directly link to Desmos website )
 //   1.0        first version: open a new tab with the gallery
