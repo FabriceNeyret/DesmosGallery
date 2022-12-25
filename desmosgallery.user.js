@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.4
+// @version     1.4.1
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -73,12 +73,7 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
     });
   }
   
-  var main = function() {
-
-    pollForValue(() => window.Calc).then(() => {  // protection against DesModder freezing Desmos start script
-        console.log("Calc has been loaded")
-      })
-    
+  function init() {    
     var spanObj = document.createElement("SPAN");                                       // creates button
     DesmosGallery.button = document.createElement("INPUT");
     DesmosGallery.button.type = "button";
@@ -106,6 +101,14 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
 
   setTimeout(main, 3000);
 }
+
+  var main = function() {
+
+    pollForValue(() => window.Calc).then(() => {  // protection against DesModder freezing Desmos start script
+        console.log("Calc has been loaded");
+        init();
+      });
+  }
 
 function AddJSNode(fn, url) {
   var scriptNode = document.createElement("script");
