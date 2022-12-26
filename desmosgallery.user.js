@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.4.2
+// @version     1.5
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -13,6 +13,7 @@
 // ==/UserScript==
 
 // changelog:
+//   1.5        include date & link to github
 //   1.4        protection against DesModder freezing Desmos start script
 //   1.3        structure new place found. Independance back.
 //   1.2        fix after Desmos Calc is now closured. Now rely on DesModder util.
@@ -32,13 +33,13 @@ function PageScript() {
  // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
-    t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n( "+g.length+" graphs. )</br>\n";
+    t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+Date()+"</small>&nbsp&nbsp)</br>\n";
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
    /* t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)"; */                                // optional JSON URL for backup
       t += "</div>\n";
     }
-    t+="</body></html>"
+    t+="<hr>&nbsp&nbsp&nbsp<small>generated with <a href=https://github.com/FabriceNeyret/DesmosGallery>DesmosGallery</a></small></body></html>"
     window.open().document.write(t);                                                    // creates new tab with gallery
     download( t, "DesmosGallery.html", "text/plain; charset=UTF-8" );                   // download the html file
   };
@@ -99,15 +100,10 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
 
   }
 
-  var main = function() {
-
-    pollForValue(() => window.Calc).then(() => {  // protection against DesModder freezing Desmos start script
+  pollForValue(() => window.Calc).then(() => {  // protection against DesModder freezing Desmos start script
         console.log("Calc has been loaded");
         init();
       });
-  }
-  
-  setTimeout(main, 3000);
 }
 
 function AddJSNode(fn, url) {
