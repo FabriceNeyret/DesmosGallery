@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.5
+// @version     1.5.1
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -31,12 +31,21 @@ function PageScript() {
     var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
  // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
  // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
+    
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
-    t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+Date()+"</small>&nbsp&nbsp)</br>\n";
+    t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n";
+    gc = Date().replace(/ \([\s\S]*?\)/g, '');
+    t += "(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+gc+"</small>&nbsp&nbsp)</br>\n";
+    
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
-   /* t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)"; */                                // optional JSON URL for backup
+      if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // optional: JSON URL for backup
+      if ( false ) {                                                                    // optional: show creation date of each graph
+        var gc=""+g[i].created;
+        gc = gc.replace(/ \([\s\S]*?\)/g, '');
+        t+= " ("+gc+")";
+      }
       t += "</div>\n";
     }
     t+="<hr>&nbsp&nbsp&nbsp<small>generated with <a href=https://github.com/FabriceNeyret/DesmosGallery>DesmosGallery</a></small></body></html>"
