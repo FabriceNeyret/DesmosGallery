@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.5.1
+// @version     1.6
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -13,7 +13,8 @@
 // ==/UserScript==
 
 // changelog:
-//   1.5        include date & link to github
+//   1.6        OPTION (default=true) : skip draft graphs ( title = Undefined ).
+//   1.5        include date & link to github. OPTION (default=false): date + backup URL per graph
 //   1.4        protection against DesModder freezing Desmos start script
 //   1.3        structure new place found. Independance back.
 //   1.2        fix after Desmos Calc is now closured. Now rely on DesModder util.
@@ -39,9 +40,10 @@ function PageScript() {
     t += "(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+gc+"</small>&nbsp&nbsp)</br>\n";
     
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
+      if ( true && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) continue; // OPTIONAL: skip draft graphs ( title undefined )
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
-      if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // optional: JSON URL for backup
-      if ( false ) {                                                                    // optional: show creation date of each graph
+      if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // OPTIONAL: JSON URL for backup
+      if ( false ) {                                                                    // OPTIONAL: show creation date of each graph
         var gc=""+g[i].created;
         gc = gc.replace(/ \([\s\S]*?\)/g, '');
         t+= " ("+gc+")";
