@@ -40,7 +40,7 @@ function PageScript() {
     t += "(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+gc+"</small>&nbsp&nbsp)</br>\n";
     skip = 0;
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
-      if ( true && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) 
+      if ( false && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) 
           { skip++; continue; }                                                         // OPTIONAL: skip draft graphs ( title undefined )
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
       if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // OPTIONAL: JSON URL for backup
