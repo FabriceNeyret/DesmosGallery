@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.6
+// @version     1.6.1
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -38,9 +38,10 @@ function PageScript() {
     t += "</head>\n<body>\n<hr><center><h1>My Desmos Graphs visual list</h1> </center><hr>\n";
     gc = Date().replace(/ \([\s\S]*?\)/g, '');
     t += "(&nbsp "+g.length+" graphs&nbsp&nbsp <small> on &nbsp "+gc+"</small>&nbsp&nbsp)</br>\n";
-    
+    skip = 0;
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
-      if ( true && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) continue; // OPTIONAL: skip draft graphs ( title undefined )
+      if ( true && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) 
+          { skip++; continue; }                                                         // OPTIONAL: skip draft graphs ( title undefined )
       t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
       if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // OPTIONAL: JSON URL for backup
       if ( false ) {                                                                    // OPTIONAL: show creation date of each graph
@@ -50,6 +51,7 @@ function PageScript() {
       }
       t += "</div>\n";
     }
+    if (skip > 0)  t+="<br>"+skip+" Untitled graphs skipped";
     t+="<hr>&nbsp&nbsp&nbsp<small>generated with <a href=https://github.com/FabriceNeyret/DesmosGallery>DesmosGallery</a></small></body></html>"
     window.open().document.write(t);                                                    // creates new tab with gallery
     download( t, "DesmosGallery.html", "text/plain; charset=UTF-8" );                   // download the html file
