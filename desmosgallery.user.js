@@ -51,7 +51,7 @@ function PageScript() {
       }
       t += "</div>\n";
     }
-    if (skip > 0)  t+="<br>"+skip+" Untitled graphs skipped";
+    if (skip > 0)  t+="<br>"+skip+" untitled graphs skipped.";
     t+="<hr>&nbsp&nbsp&nbsp<small>generated with <a href=https://github.com/FabriceNeyret/DesmosGallery>DesmosGallery</a></small></body></html>"
     window.open().document.write(t);                                                    // creates new tab with gallery
     download( t, "DesmosGallery.html", "text/plain; charset=UTF-8" );                   // download the html file
