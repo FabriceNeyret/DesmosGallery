@@ -15,7 +15,7 @@ Once you have installed TamperMonkey/GreaseMonkey/variant plugin in your favorit
 
 ## options 
 check if(bool) in code
-- (default=true) : skip draft graphs ( title = Undefined ).
+- (default=false): skip draft graphs ( title = Undefined ).
 - (default=false): date per graph
 - (default=false): backup URL per graph
 
