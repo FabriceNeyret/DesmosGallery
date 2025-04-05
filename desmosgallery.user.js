@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.6.2
+// @version     1.6.3
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
