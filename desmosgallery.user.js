@@ -29,7 +29,8 @@ function PageScript() {
 
   // my stuff
   DesmosGallery.getGallery = function() {
-    var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
+      var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs.data;
+    //var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
  // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
  // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
     
@@ -42,7 +43,7 @@ function PageScript() {
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
       if ( false && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) 
           { skip++; continue; }                                                         // OPTIONAL: skip draft graphs ( title undefined )
-      t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbURL+"></br>"+g[i].title+"</a>"; // image + title + URL
+      t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbUrl+"></br>"+g[i].title+"</a>"; // image + title + URL
       if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // OPTIONAL: JSON URL for backup
       if ( false ) {                                                                    // OPTIONAL: show creation date of each graph
         var gc=""+g[i].created;
