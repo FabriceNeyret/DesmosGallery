@@ -29,10 +29,10 @@ function PageScript() {
 
   // my stuff
   DesmosGallery.getGallery = function() {
-      var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs.data;
+      var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs.data; // yet another change. ( thanks sam-lb ) 
     //var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
- // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
- // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
+   // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
+   // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
     
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
