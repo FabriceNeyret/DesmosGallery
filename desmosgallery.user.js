@@ -109,7 +109,7 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
 //    console.log("GM_DesmosGallery: Graph not found, or several found.");
 //    return;
 //  }
-    if (DesmosGallery.graph.length < 1) {                         // strangely, 3dgraphs have two.
+    if (DesmosGallery.graph.length < 1) {                                              // strangely, 3d graphs have two.
       console.log("GM_DesmosGallery: Graph not found.");
       return;
     }
