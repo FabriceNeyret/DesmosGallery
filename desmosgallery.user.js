@@ -105,8 +105,12 @@ function download(data, filename, type) { // from https://github.com/SlimRunner/
     spanObj.appendChild(DesmosGallery.button);
 
     DesmosGallery.graph = document.getElementsByClassName("dcg-graph-inner");           // attach it to the top bar
-    if (DesmosGallery.graph.length != 1) {
-      console.log("GM_DesmosGallery: Graph not found, or several found.");
+// if (DesmosGallery.graph.length != 1) {
+//    console.log("GM_DesmosGallery: Graph not found, or several found.");
+//    return;
+//  }
+    if (DesmosGallery.graph.length < 1) {                         // strangely, 3dgraphs have two.
+      console.log("GM_DesmosGallery: Graph not found.");
       return;
     }
     DesmosGallery.graph = DesmosGallery.graph[0];
