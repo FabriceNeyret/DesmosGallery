@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.6.3
+// @version     1.6.4
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -13,6 +13,7 @@
 // ==/UserScript==
 
 // changelog:
+//   1.6.4      fix after new change in Desmos Calc structure. 
 //   1.6        OPTION (default=true) : skip draft graphs ( title = Undefined ).
 //   1.5        include date & link to github. OPTION (default=false): date + backup URL per graph
 //   1.4        protection against DesModder freezing Desmos start script
@@ -29,8 +30,9 @@ function PageScript() {
 
   // my stuff
   DesmosGallery.getGallery = function() {
-      var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs.data; // yet another change. ( thanks sam-lb ) 
-    //var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
+      var g = Calc._calc.globalHotkeys.shellController.mygraphsController.graphsController.__savedGraphs.data; // yet another change. ( thanks sea-saw ) 
+   // var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs.data; // yet another change. ( thanks sam-lb ) 
+   // var g = Calc._calc.globalHotkeys.mygraphsController.graphsController.__savedGraphs; // structure found again. ( thanks Naitronbomb ! )
    // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
    // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
     
