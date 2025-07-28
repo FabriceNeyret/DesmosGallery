@@ -36,7 +36,7 @@ function PageScript() {
    // var g = DesModder.controller.topLevelComponents.graphsController.__savedGraphs;     // since 09/2022 the Calc structure is no longer exposed. Now rely on DesModder util.
    // var g = Calc.myGraphsWrapper._childViews[0].props.graphsController().__savedGraphs; // structure containing all user graph informations. ( thanks fireflame241 ! )
 
-    g = structuredClone(g).sort( (a,b) => b.versionCreatedAt - a.versionCreatedAt);      // sort by creation date, mixing 2d and 3d graphs
+    g = g.toSorted( (a,b) => b.versionCreatedAt - a.versionCreatedAt);                  // sort by creation date, mixing 2d and 3d graphs
     
     var t = "<html>\n<head><title> Desmos graphs - visual list </title>\n";             // build the gallery html
     t += "<style>div { display:inline-block; width : 200px; height: 250px; padding: 10px;} div img { height: 200px;  width:  200px;}</style>\n"; // CSS
