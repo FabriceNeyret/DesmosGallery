@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        DesmosGallery
 // @namespace   https://github.com/FabriceNeyret/DesmosGallery
-// @version     1.6.4
+// @version     1.6.5
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
 // @include     https://www.desmos.com/calculator*
@@ -45,7 +45,9 @@ function PageScript() {
     for( var i=0; i<g.length; i++) {                                                    // foreach user graphs
       if ( false && ( g[i].title == "Graphique sans titre" || g[i].title == "Untitled Graph" ) ) 
           { skip++; continue; }                                                         // OPTIONAL: skip draft graphs ( title undefined )
-      t += "<div><a href=https://www.desmos.com/calculator/"+g[i].hash+"><img src="+g[i].thumbUrl+"></br>"+g[i].title+"</a>"; // image + title + URL
+      t += "<div><a href=https://www.desmos.com/";
+      if (g[i].product === 'graphing-3d') t += "3d/"; else t += "calculator/";          // URL: different for 2D and 3D graphs
+      t += g[i].hash+"><img src="+g[i].thumbUrl+"></br>"+g[i].title+"</a>";             // image + title + URL
       if ( false )  t+= " (<a href="+g[i].stateURL+">JSON"+"</a>)";                     // OPTIONAL: JSON URL for backup
       if ( false ) {                                                                    // OPTIONAL: show creation date of each graph
         var gc=""+g[i].created;
