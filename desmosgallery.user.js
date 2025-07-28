@@ -4,8 +4,8 @@
 // @version     1.6.6
 // @description Desmos Gallery generator
 // @author      Fabrice Neyret
-// @include     https://www.desmos.com/calculator*
 // @match       https://*.desmos.com/calculator*
+// @match       https://*.desmos.com/3d*
 // @run-at      document-start
 // @grant       GM_addStyle
 // @downloadURL https://github.com/FabriceNeyret/DesmosGallery/raw/main/desmosgallery.user.js
