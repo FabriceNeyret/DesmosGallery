@@ -10,7 +10,7 @@ Example of result:
 # Usage
 Navigate to the main calculator page of Desmos.com, wait for the button "Get Gallery" to appear in the top-right corner of the page. If it is disabled, you should just need to update the view e.g. by dragging it a bit with the mouse. Click on the button to save the gallery as an html file to install wherever you wish, and to display a new tab containing your personnal gallery of graphs ( for verification, save or copy-paste it as any web content, or just to admire :-) ).
 
-Attention: only display 2D and 3D graphs.
+Attention: only displays 2D and 3D graphs.
 
 # Installation
 Once you have installed TamperMonkey/GreaseMonkey/variant plugin in your favorite browser, then it's as for any script: click on the name.user.js file above, then "raw". Tampermonkey should then directly propose to install the script, otherwise click on your Monkey plugin icon shortcut and manually copy-paste the code as a new script.
