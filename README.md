@@ -4,11 +4,12 @@ Creates and saves an html file to be installed wherever you wish, and opens it a
 
 Example of result:
 
-<img src="https://media.discordapp.net/attachments/655972529030037507/830680841066643486/kuE6ri6.png" height="400"/> 
+<img src="https://i.imgur.com/rPj3BbD.png" height="400"/> 
 
 
 # Usage
 Navigate to the main calculator page of Desmos.com, wait for the button "Get Gallery" to appear in the top-right corner of the page. If it is disabled, you should just need to update the view e.g. by dragging it a bit with the mouse. Click on the button to save the gallery as an html file to install wherever you wish, and to display a new tab containing your personnal gallery of graphs ( for verification, save or copy-paste it as any web content, or just to admire :-) ).
+Attention: only saves 2D and 3D graphs.
 
 # Installation
 Once you have installed TamperMonkey/GreaseMonkey/variant plugin in your favorite browser, then it's as for any script: click on the name.user.js file above, then "raw". Tampermonkey should then directly propose to install the script, otherwise click on your Monkey plugin icon shortcut and manually copy-paste the code as a new script.
